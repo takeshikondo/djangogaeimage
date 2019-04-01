@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+    <html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>Label</title>
+    </head>
+    <body>
+        <table border="1">
+            <tr>
+                <th> ラベル　</th>
+                <th>　スコア </th>
+            </tr>
+            <tr align="right">
+                <td> {{description1}} </td>
+                <td> {{score1}} </td>
+            </tr>
+            <tr align="right">
+                <td> {{description2}} </td>
+                <td> {{score2}} </td>
+            </tr>
+            <tr align="right">
+                <td> {{description3}} </td>
+                <td> {{score3}} </td>
+            </tr>        
+        </table>
+        <br>
+        <div>
+            <a href="{% url 'app1:upload3' %}">戻る</a>
+        </div>
+                                  
+    </body>
+</html>

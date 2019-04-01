@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Download Sample</title>
+    </head>
+    <body>
+        <!--
+        <script type="text/javascript">
+            //ダウンロードのメイン処理
+            function fileDownload() {
+                var data = getData();
+                var fileName = "output.csv"; 
+            
+                //Excelで開くにはUTF-8 BOMありにする必要があるので、BOMありにする
+                var bom = new Uint8Array([0xEF, 0xBB, 0xBF]); 
+                var blob = new Blob([bom, data], {"type": "text/csv"});
+            
+                if (window.navigator.msSaveBlob) {
+                    window.navigator.msSaveBlob(blob, fileName);
+                    
+                    //msSaveOrOpenBlobの場合はファイルを保存せずに開ける
+                    window.navigator.msSaveOrOpenBlob(blob, fileName); 
+                }
+                else {
+                    document.getElementById("download").href = window.URL.createObjectURL(blob);
+                    document.getElementById("download").download = fileName;
+                    document.getElementById("download").click()
+                }
+            }
+            //データ取得
+            function getData() {
+                //Processing Data Get...
+                data = "1,1,1";
+                return data; //カンマ区切りと改行でcsvの形に整形された文字列を返す
+            }
+        </script>
+        <button id="download" type="button" onclick="fileDownload()">ダウンロード</button>
+        -->
+        
+        <!--
+        <script type='text/javascript'>
+            function handleDownload() {
+                var content = 'あいうえお';
+                var blob = new Blob([ content ], { "type" : "text/plain" });
+
+                if (window.navigator.msSaveBlob) { 
+                    window.navigator.msSaveBlob(blob, "test.txt"); 
+
+                    // msSaveOrOpenBlobの場合はファイルを保存せずに開ける
+                    window.navigator.msSaveOrOpenBlob(blob, "test.txt"); 
+                } else {
+                    document.getElementById("download").href = window.URL.createObjectURL(blob);
+                }
+            }
+        </script>        
+        <a id="download" href="#" download="test.txt" onclick="handleDownload()">ダウンロード</a>
+        -->
+        
+        
+        <script type="text/javascript">
+            function fileDownload() {
+                var bom = new Uint8Array([0xEF, 0xBB, 0xBF]);
+                var data = getData();
+                var blob = new Blob([bom, data], { "type" : "text/csv" });
+                let link = document.createElement('a')
+                link.href = window.URL.createObjectURL(blob)
+                link.download = 'output.csv'
+                link.click()   
+            }
+            
+            function getData() {
+                data = "1, 2, 3, 4, 5"
+                return data; 
+            }
+        </script>        
+        <button type="button" onclick="fileDownload()">ダウンロード</button>
+                                
+    </body>
+</html>
+
+
+
+<!--
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Download Sample</title>
+    </head>
+    <body>
+        <script type='text/javascript'>
+            function handleDownload() {
+                var content = 'あいうえお';
+                var blob = new Blob([ content ], { "type" : "text/plain" });
+
+                if (window.navigator.msSaveBlob) { 
+                    window.navigator.msSaveBlob(blob, "test.txt"); 
+
+                    // msSaveOrOpenBlobの場合はファイルを保存せずに開ける
+                    window.navigator.msSaveOrOpenBlob(blob, "test.txt"); 
+                } else {
+                    document.getElementById("download").href = window.URL.createObjectURL(blob);
+                }
+            }
+        </script>
+        <a id="download" href="#" download="test.txt" onclick="handleDownload()">ダウンロード</a>
+    </body>
+</html>
+
+
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Download Sample</title>
+    </head>
+    <body>
+        <script type='text/javascript'>
+            function handleDownload() {
+                var bom = new Uint8Array([0xEF, 0xBB, 0xBF]);
+                var content = 'あいうえお,かきくけこ,さしすせそ';
+                var blob = new Blob([ bom, content ], { "type" : "text/csv" });
+
+                if (window.navigator.msSaveBlob) { 
+                    window.navigator.msSaveBlob(blob, "test.csv"); 
+
+                    // msSaveOrOpenBlobの場合はファイルを保存せずに開ける
+                    window.navigator.msSaveOrOpenBlob(blob, "test.csv"); 
+                } else {
+                    document.getElementById("download").href = window.URL.createObjectURL(blob);
+                }
+            }
+        </script>
+        <a id="download" href="#" download="test.csv" onclick="handleDownload()">ダウンロード</a>
+    </body>
+</html>
+-->

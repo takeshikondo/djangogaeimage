@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+    <html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>Upload</title>
+    </head>
+    <body>
+        <p>  </p>         
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <br><br>
+            <button type="submit">アップロード</button>
+        </form>
+        <br>
+        
+        <p> </p>
+        <img src="{{ last.image.url }}"/><br>
+        
+        <table border="1">
+            <tr>
+                <th> ラベル　</th>
+                <th>　スコア </th>
+            </tr>
+            <tr align="right">
+                <td> {{description1}} </td>
+                <td> {{score1}} </td>
+            </tr>
+            <tr align="right">
+                <td> {{description2}} </td>
+                <td> {{score2}} </td>
+            </tr>
+            <tr align="right">
+                <td> {{description3}} </td>
+                <td> {{score3}} </td>
+            </tr>        
+        </table> 
+        <br>       
+        <br>
+        
+        <p> データ </p>
+        {% for obj in objects %}
+        <img src="{{ obj.image.url }}" width="100" height="100"/>
+        {% endfor %}
+                  
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+    <html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>Upload</title>
+    </head>
+    <body>
+        <p>  </p>         
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br><br>
+            <button type="submit">アップロード</button>
+        </form>
+        <br>                          
+    </body>
+</html>
